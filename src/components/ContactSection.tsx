@@ -17,16 +17,15 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contato" className="py-36 relative overflow-hidden">
+    <section id="contato" className="py-20 lg:py-28 relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           <div>
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-primary text-sm font-medium tracking-[0.3em] uppercase block mb-6"
+              className="text-primary text-sm font-medium tracking-[0.3em] uppercase block mb-4"
             >
               Contato
             </motion.span>
@@ -36,7 +35,7 @@ const ContactSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-8"
+                className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 break-words"
               >
                 Pronto para
                 <br />
@@ -48,7 +47,7 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="text-muted-foreground leading-relaxed mb-12 max-w-md"
+              className="text-muted-foreground leading-relaxed mb-10 max-w-md text-sm lg:text-base"
             >
               Deixe seus dados e entraremos em contato. Ou fale diretamente pelo WhatsApp.
             </motion.p>
@@ -58,7 +57,7 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="space-y-6"
+              className="space-y-5"
             >
               <MagneticButton
                 onClick={() =>
@@ -67,13 +66,13 @@ const ContactSection = () => {
                     "_blank"
                   )
                 }
-                className="inline-flex items-center gap-3 bg-[#25D366] text-primary-foreground px-8 py-4 rounded-full font-medium"
+                className="inline-flex items-center gap-3 bg-[#25D366] text-primary-foreground px-7 py-3.5 rounded-full font-medium text-sm"
               >
-                <MessageCircle size={20} />
+                <MessageCircle size={18} />
                 Falar pelo WhatsApp
               </MagneticButton>
 
-              <div className="flex flex-col gap-5 pt-8 border-t border-border">
+              <div className="flex flex-col gap-4 pt-6 border-t border-border">
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <Phone size={16} className="text-primary" />
                   <span className="text-sm">(19) 99321-1881</span>
@@ -86,7 +85,6 @@ const ContactSection = () => {
             </motion.div>
           </div>
 
-          {/* Right - form */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +93,7 @@ const ContactSection = () => {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-card border border-border rounded-3xl p-8 md:p-12 space-y-6"
+              className="bg-card border border-border rounded-3xl p-7 md:p-10 space-y-5"
             >
               {[
                 { field: "name", label: "Nome", type: "text", placeholder: "Seu nome completo" },
@@ -109,7 +107,7 @@ const ContactSection = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.08 }}
                 >
-                  <label className="text-xs text-muted-foreground uppercase tracking-wider mb-2 block">{input.label}</label>
+                  <label className="text-xs text-muted-foreground uppercase tracking-wider mb-1.5 block">{input.label}</label>
                   <input
                     type={input.type}
                     required
@@ -118,7 +116,7 @@ const ContactSection = () => {
                     onFocus={() => setFocusedField(input.field)}
                     onBlur={() => setFocusedField(null)}
                     placeholder={input.placeholder}
-                    className={`w-full bg-transparent border-b-2 px-0 py-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none transition-all duration-500 ${
+                    className={`w-full bg-transparent border-b-2 px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none transition-all duration-500 text-sm ${
                       focusedField === input.field ? "border-primary" : "border-border"
                     }`}
                   />
@@ -129,7 +127,7 @@ const ContactSection = () => {
                 whileHover={{ scale: 1.02, boxShadow: "0 0 40px -10px hsl(0 100% 50% / 0.5)" }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-primary text-primary-foreground py-5 rounded-full font-semibold flex items-center justify-center gap-2 shadow-glow relative overflow-hidden group mt-6"
+                className="w-full bg-primary text-primary-foreground py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-glow relative overflow-hidden group mt-4"
               >
                 <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <Send size={18} className="relative z-10" />
