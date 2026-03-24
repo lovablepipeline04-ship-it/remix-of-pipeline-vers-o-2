@@ -11,16 +11,26 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section id="processo" className="py-36 relative overflow-hidden">
+    <section id="processo" className="py-20 lg:py-28 relative overflow-hidden">
+      {/* Connector line behind cards */}
+      <div className="absolute top-1/2 left-0 right-0 hidden lg:block">
+        <motion.div
+          className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+        />
+      </div>
+
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 lg:mb-20">
           <div>
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-primary text-sm font-medium tracking-[0.3em] uppercase block mb-6"
+              className="text-primary text-sm font-medium tracking-[0.3em] uppercase block mb-4"
             >
               Processo
             </motion.span>
@@ -30,7 +40,7 @@ const ProcessSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground"
+                className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground break-words"
               >
                 Do diagnóstico ao
               </motion.h2>
@@ -41,7 +51,7 @@ const ProcessSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-4xl md:text-6xl lg:text-7xl font-black text-gradient-red"
+                className="text-3xl md:text-5xl lg:text-6xl font-black text-gradient-red"
               >
                 resultado.
               </motion.h2>
@@ -52,31 +62,29 @@ const ProcessSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-muted-foreground max-w-sm text-base leading-relaxed"
+            className="text-muted-foreground max-w-sm text-sm lg:text-base leading-relaxed"
           >
             Uma metodologia clara e comprovada para levar sua empresa ao próximo nível digital.
           </motion.p>
         </div>
 
-        {/* Steps - editorial cards */}
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.12}>
-          {steps.map((step, i) => (
+          {steps.map((step) => (
             <StaggerItem key={step.title}>
               <motion.div
                 whileHover={{ y: -8 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className="relative bg-card border border-border rounded-3xl p-8 pt-10 group hover:border-primary/30 transition-all duration-500 overflow-hidden h-full"
+                className="relative bg-card border border-border rounded-3xl p-7 pt-8 group hover:border-primary/30 transition-all duration-500 overflow-hidden h-full"
               >
-                {/* Giant background number */}
-                <span className="absolute -top-4 -right-2 text-[8rem] font-black text-foreground/[0.03] group-hover:text-primary/[0.08] transition-all duration-700 leading-none select-none">
+                <span className="absolute -top-4 -right-2 text-[7rem] font-black text-foreground/[0.03] group-hover:text-primary/[0.08] transition-all duration-700 leading-none select-none">
                   {step.num}
                 </span>
 
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-500">
-                    <step.icon size={24} className="text-primary group-hover:text-primary-foreground transition-colors duration-500" />
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-500">
+                    <step.icon size={22} className="text-primary group-hover:text-primary-foreground transition-colors duration-500" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                     {step.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
