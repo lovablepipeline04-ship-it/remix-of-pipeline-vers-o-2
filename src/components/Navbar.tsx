@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import pipelineLogo from "@/assets/pipeline-favicon.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -16,9 +17,9 @@ const Navbar = () => {
 
   const links = [
     { label: "Início", href: "#inicio" },
+    { label: "Soluções", href: "#solucoes" },
     { label: "Processo", href: "#processo" },
     { label: "Sobre Nós", href: "#sobre" },
-    { label: "Depoimentos", href: "#depoimentos" },
     { label: "FAQ", href: "#faq" },
   ];
 
@@ -44,18 +45,14 @@ const Navbar = () => {
             : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-6 py-5 flex items-center justify-between">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollTo("#inicio")}
             className="flex items-center gap-2"
           >
-            <motion.div
-              className="w-8 h-8 rounded-full bg-gradient-red"
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            />
+            <img src={pipelineLogo} alt="Pipeline" className="h-8 w-auto" />
             <span className="text-xl font-bold text-foreground">Pipeline</span>
           </motion.button>
 
@@ -82,7 +79,7 @@ const Navbar = () => {
               onClick={() => scrollTo("#contato")}
               className="bg-gradient-red text-primary-foreground px-6 py-2.5 rounded-full text-sm font-medium"
             >
-              Fale Conosco
+              Diagnóstico Gratuito
             </motion.button>
           </div>
 
@@ -124,7 +121,7 @@ const Navbar = () => {
                   onClick={() => scrollTo("#contato")}
                   className="bg-gradient-red text-primary-foreground px-6 py-3 rounded-full text-sm font-medium w-full"
                 >
-                  Fale Conosco
+                  Diagnóstico Gratuito
                 </motion.button>
               </div>
             </motion.div>

@@ -8,20 +8,24 @@ import {
 
 const faqs = [
   {
-    question: "Que tipo de problemas de negócios vocês resolvem?",
-    answer: "Através de uma análise interna da sua marca e de mercado, identificamos os pontos de melhorias na sua operação e possíveis caminhos para atingir os objetivos.",
+    question: "Meus leads não têm perfil de compra. Vocês resolvem isso?",
+    answer: "Sim. Criamos campanhas de tráfego pago segmentadas com foco em perfil de compra real — não em volume. Leads qualificados custam mais por unidade, mas convertem de verdade.",
   },
   {
-    question: "Como funciona o processo de consultoria?",
-    answer: "Através de reuniões e um modelo de comunicação eficiente, mantemos alinhamento constante com planejamentos semanais, quinzenais e mensais.",
+    question: "Meu time comercial não sabe atender leads do digital. E agora?",
+    answer: "Nós treinamos e estruturamos o atendimento comercial pelo WhatsApp com scripts, cadência de follow-up e boas práticas. Seu time aprende a conduzir o lead até o fechamento.",
   },
   {
-    question: "O que diferencia a Pipeline de outros consultores?",
-    answer: "Com um estudo de mercado eficiente, entregamos um projeto personalizado com soluções práticas e bom custo-benefício através de parcerias com diversas plataformas.",
+    question: "Preciso de CRM mas não sei por onde começar.",
+    answer: "Implementamos o CRM do zero, configuramos as etapas do funil, treinamos o time e acompanhamos a adoção. Você terá visão completa de cada lead e cada oportunidade.",
   },
   {
-    question: "Conseguem ajudar a um custo acessível?",
-    answer: "Sim! Trabalhamos com planos personalizados que cabem no orçamento de cada cliente, garantindo resultados reais independente do tamanho do investimento.",
+    question: "Quanto tempo leva para ver resultados?",
+    answer: "Em 30 dias as campanhas já estão rodando e gerando leads. Em 60 dias o time comercial está estruturado. Em 90 dias o funil está funcionando com previsibilidade.",
+  },
+  {
+    question: "Vocês trabalham com empresas pequenas?",
+    answer: "Sim. Nossos planos são personalizados para o momento de cada empresa. O importante é ter disposição para profissionalizar o comercial e investir em tráfego.",
   },
 ];
 
@@ -45,7 +49,7 @@ const FAQSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-3xl md:text-4xl font-black text-foreground mb-6 break-words"
+                className="text-[clamp(1.8rem,4vw,2.5rem)] font-black text-foreground mb-6 break-words"
               >
                 Dúvidas
                 <br />
@@ -59,7 +63,7 @@ const FAQSection = () => {
               transition={{ delay: 0.3 }}
               className="text-muted-foreground leading-relaxed text-sm lg:text-base"
             >
-              Não encontrou sua resposta? Entre em contato direto pelo WhatsApp.
+              Não encontrou sua resposta? Fale direto pelo WhatsApp.
             </motion.p>
           </div>
 

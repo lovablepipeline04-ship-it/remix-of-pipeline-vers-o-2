@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
-import { TrendingUp, Settings, Cpu } from "lucide-react";
+import { BarChart3, MessageCircle, Database } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "./InteractiveElements";
 
 const pillars = [
   {
-    icon: TrendingUp,
-    title: "Performance",
-    description: "Dados viram decisões. Campanhas otimizadas, funis inteligentes, acompanhamento constante.",
+    icon: BarChart3,
+    title: "Tráfego Qualificado",
+    description: "Campanhas de performance que geram leads com perfil real de compra — não curiosos, compradores.",
   },
   {
-    icon: Settings,
-    title: "Organização",
-    description: "Gargalos mapeados. Processos claros. Previsibilidade na operação do seu negócio.",
+    icon: MessageCircle,
+    title: "Vendas pelo WhatsApp",
+    description: "Estruturação do atendimento comercial digital: scripts, cadência de follow-up e treinamento do time.",
   },
   {
-    icon: Cpu,
-    title: "Tecnologia",
-    description: "Sites, sistemas, integrações e automações que ampliam sua capacidade operacional.",
+    icon: Database,
+    title: "CRM & Funil de Vendas",
+    description: "Implementação de CRM para rastrear cada lead, cada etapa, cada oportunidade. Controle total.",
   },
 ];
 
@@ -41,11 +41,11 @@ const AboutSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] text-foreground mb-8 break-words"
+                className="text-[clamp(1.8rem,4vw,3rem)] font-black leading-[1.1] text-foreground mb-8 break-words"
               >
-                Estratégia que
+                Transformamos leads em
                 <br />
-                <span className="text-gradient-red">gera resultado.</span>
+                <span className="text-gradient-red">vendas reais.</span>
               </motion.h2>
             </div>
 
@@ -64,7 +64,7 @@ const AboutSection = () => {
               transition={{ delay: 0.4 }}
               className="text-muted-foreground leading-relaxed text-sm lg:text-base mb-4"
             >
-              A <strong className="text-foreground">Pipeline</strong> é uma consultoria digital criada para transformar estratégia em resultado. Crescimento não acontece por acaso — é construído com método, clareza e performance.
+              A <strong className="text-foreground">Pipeline</strong> nasceu para resolver o problema mais caro das empresas: perder vendas por falta de processo. Leads entram e ninguém sabe o que fazer com eles.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ const AboutSection = () => {
               transition={{ delay: 0.5 }}
               className="text-muted-foreground leading-relaxed text-sm lg:text-base"
             >
-              Unimos <strong className="text-foreground">estratégia, marketing e tecnologia</strong> para ajudar empresas a crescerem de forma previsível, sustentável e inteligente.
+              Unimos <strong className="text-foreground">tráfego pago, atendimento comercial e CRM</strong> para criar uma máquina de vendas previsível e escalável.
             </motion.p>
           </div>
 
