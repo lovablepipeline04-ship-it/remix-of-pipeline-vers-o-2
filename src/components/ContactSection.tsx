@@ -9,7 +9,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá, meu nome é ${formData.name}. Gostaria de saber mais sobre a consultoria da Pipeline.`;
+    const message = `Olá, meu nome é ${formData.name}. Quero um diagnóstico gratuito para parar de perder vendas.`;
     window.open(
       `https://api.whatsapp.com/send/?phone=5519993211881&text=${encodeURIComponent(message)}`,
       "_blank"
@@ -35,11 +35,11 @@ const ContactSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 break-words"
+                className="text-[clamp(1.8rem,4vw,3rem)] font-black text-foreground mb-6 break-words"
               >
-                Pronto para
+                Quer parar de
                 <br />
-                <span className="text-gradient-red">crescer?</span>
+                <span className="text-gradient-red">perder vendas?</span>
               </motion.h2>
             </div>
             <motion.p
@@ -49,7 +49,7 @@ const ContactSection = () => {
               transition={{ delay: 0.3 }}
               className="text-muted-foreground leading-relaxed mb-10 max-w-md text-sm lg:text-base"
             >
-              Deixe seus dados e entraremos em contato. Ou fale diretamente pelo WhatsApp.
+              Preencha o formulário para receber um diagnóstico gratuito da sua operação comercial. Ou fale direto pelo WhatsApp.
             </motion.p>
 
             <motion.div
@@ -62,7 +62,7 @@ const ContactSection = () => {
               <MagneticButton
                 onClick={() =>
                   window.open(
-                    "https://api.whatsapp.com/send/?phone=5519993211881&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20Pipeline",
+                    "https://api.whatsapp.com/send/?phone=5519993211881&text=Ol%C3%A1%2C%20quero%20um%20diagn%C3%B3stico%20gratuito",
                     "_blank"
                   )
                 }
@@ -95,6 +95,11 @@ const ContactSection = () => {
               onSubmit={handleSubmit}
               className="bg-card border border-border rounded-3xl p-7 md:p-10 space-y-5"
             >
+              <div className="mb-2">
+                <h3 className="text-base font-bold text-foreground">Diagnóstico Gratuito</h3>
+                <p className="text-xs text-muted-foreground">Descubra os gargalos que travam suas vendas</p>
+              </div>
+
               {[
                 { field: "name", label: "Nome", type: "text", placeholder: "Seu nome completo" },
                 { field: "phone", label: "WhatsApp", type: "tel", placeholder: "(00) 00000-0000" },
@@ -131,11 +136,11 @@ const ContactSection = () => {
               >
                 <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                 <Send size={18} className="relative z-10" />
-                <span className="relative z-10">Enviar</span>
+                <span className="relative z-10">Quero Meu Diagnóstico</span>
               </motion.button>
 
               <p className="text-xs text-center text-muted-foreground">
-                Seus dados estão seguros. Não enviamos spam.
+                Seus dados estão seguros. Sem spam.
               </p>
             </form>
           </motion.div>

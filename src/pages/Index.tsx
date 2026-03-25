@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import PainPointsSection from "@/components/PainPointsSection";
 import ProcessSection from "@/components/ProcessSection";
+import ServicesSection from "@/components/ServicesSection";
 import ResultsSection from "@/components/ResultsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
@@ -18,7 +20,9 @@ const Index = () => {
       <WhatsAppFloat />
       <Navbar />
       <HeroSection />
+      <PainPointsSection />
       <ProcessSection />
+      <ServicesSection />
       <ResultsSection />
       <TestimonialsSection />
       <AboutSection />

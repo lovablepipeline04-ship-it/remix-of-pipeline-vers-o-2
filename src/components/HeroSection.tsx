@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowDown, Send } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import pipelineLogo from "@/assets/pipeline-favicon.png";
 import { MagneticButton, FloatingElement } from "./InteractiveElements";
 
 const LetterReveal = ({ text, className = "", delay = 0 }: { text: string; className?: string; delay?: number }) => (
@@ -42,7 +43,7 @@ const HeroSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá, meu nome é ${formData.name}. Gostaria de saber mais sobre a consultoria da Pipeline.`;
+    const message = `Olá, meu nome é ${formData.name}. Quero um diagnóstico gratuito para gerar mais vendas.`;
     window.open(
       `https://api.whatsapp.com/send/?phone=5519993211881&text=${encodeURIComponent(message)}`,
       "_blank"
@@ -50,7 +51,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section ref={ref} id="inicio" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-16 lg:pt-24 lg:pb-24">
+    <section ref={ref} id="inicio" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12 lg:pt-24 lg:pb-20">
       {/* Background with parallax */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
@@ -77,14 +78,14 @@ const HeroSection = () => {
 
       {/* Content */}
       <motion.div style={{ y: textY, opacity }} className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           {/* Left - Text */}
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="flex items-center gap-3 mb-8"
+              className="flex items-center gap-3 mb-6"
             >
               <motion.div
                 className="w-3 h-3 rounded-full bg-primary"
@@ -96,22 +97,22 @@ const HeroSection = () => {
 
             <div className="overflow-hidden mb-1">
               <LetterReveal
-                text="ONDE SEU"
-                className="text-[clamp(2.2rem,7vw,6rem)] font-black leading-[1] tracking-tight text-foreground block"
+                text="SEUS LEADS"
+                className="text-[clamp(2rem,6vw,5rem)] font-black leading-[1.05] tracking-tight text-foreground block"
                 delay={0.5}
               />
             </div>
             <div className="overflow-hidden mb-1">
               <LetterReveal
-                text="CRESCIMENTO"
-                className="text-[clamp(2.2rem,7vw,6rem)] font-black leading-[1] tracking-tight text-gradient-red block"
+                text="NÃO VIRAM"
+                className="text-[clamp(2rem,6vw,5rem)] font-black leading-[1.05] tracking-tight text-foreground block"
                 delay={0.8}
               />
             </div>
             <div className="overflow-hidden">
               <LetterReveal
-                text="ACONTECE."
-                className="text-[clamp(2.2rem,7vw,6rem)] font-black leading-[1] tracking-tight text-foreground block"
+                text="VENDAS?"
+                className="text-[clamp(2rem,6vw,5rem)] font-black leading-[1.05] tracking-tight text-gradient-red block"
                 delay={1.1}
               />
             </div>
@@ -120,32 +121,32 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.6 }}
-              className="text-base lg:text-lg text-muted-foreground max-w-md leading-relaxed mt-8"
+              className="text-sm lg:text-base text-muted-foreground max-w-lg leading-relaxed mt-6"
             >
-              Posicionamento, tráfego, branding e resultados reais para empresas que querem sair do raso.
+              Geramos demanda qualificada, profissionalizamos seu atendimento comercial no WhatsApp e implementamos CRM para você não perder nenhuma oportunidade.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.8 }}
-              className="flex items-center gap-6 mt-6"
+              className="flex items-center gap-6 mt-5"
             >
               <MagneticButton
                 onClick={() => scrollTo("#contato")}
-                className="bg-primary text-primary-foreground px-8 py-4 lg:px-10 lg:py-5 rounded-full text-sm lg:text-base font-semibold shadow-glow hover:shadow-[0_0_60px_-10px_hsl(0_100%_50%_/_0.6)] transition-shadow duration-500 group relative overflow-hidden"
+                className="bg-primary text-primary-foreground px-7 py-3.5 lg:px-9 lg:py-4 rounded-full text-sm lg:text-base font-semibold shadow-glow hover:shadow-[0_0_60px_-10px_hsl(0_100%_50%_/_0.6)] transition-shadow duration-500 group relative overflow-hidden"
               >
-                <span className="relative z-10">Começar Agora</span>
+                <span className="relative z-10">Quero Gerar Mais Vendas</span>
                 <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               </MagneticButton>
 
               <motion.button
-                onClick={() => scrollTo("#processo")}
+                onClick={() => scrollTo("#dores")}
                 className="hidden md:flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
                 whileHover={{ y: 3 }}
               >
                 <ArrowDown size={20} className="group-hover:text-primary transition-colors" />
-                <span className="text-sm">Explorar</span>
+                <span className="text-sm">Saiba mais</span>
               </motion.button>
             </motion.div>
 
@@ -154,17 +155,17 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 2.2 }}
-              className="flex gap-10 md:gap-14 mt-10 pt-6 border-t border-border/50"
+              className="flex gap-8 md:gap-12 mt-8 pt-5 border-t border-border/50"
             >
               {[
-                { value: "+500", label: "Leads / mês" },
-                { value: "3x", label: "Mais orçamentos" },
-                { value: "100%", label: "Foco em vendas" },
+                { value: "+500", label: "Leads qualificados/mês" },
+                { value: "3x", label: "Mais conversão comercial" },
+                { value: "100%", label: "Controle do funil" },
               ].map((stat) => (
                 <div key={stat.label} className="group cursor-default">
                   <motion.span
                     whileHover={{ scale: 1.05 }}
-                    className="text-xl md:text-2xl font-bold text-foreground block"
+                    className="text-lg md:text-xl font-bold text-foreground block"
                   >
                     {stat.value}
                   </motion.span>
@@ -183,14 +184,19 @@ const HeroSection = () => {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-card/80 backdrop-blur-xl border border-border/60 rounded-3xl p-7 md:p-9 space-y-5 relative overflow-hidden"
+              className="bg-card/80 backdrop-blur-xl border border-border/60 rounded-3xl p-6 md:p-8 space-y-4 relative overflow-hidden"
             >
               {/* Subtle glow */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
 
               <div className="relative z-10">
-                <h3 className="text-lg font-bold text-foreground mb-1">Fale com a gente</h3>
-                <p className="text-sm text-muted-foreground mb-5">Preencha e entraremos em contato</p>
+                <div className="flex items-center gap-3 mb-4">
+                  <img src={pipelineLogo} alt="Pipeline" className="h-7 w-auto" />
+                  <div>
+                    <h3 className="text-base font-bold text-foreground leading-tight">Diagnóstico Gratuito</h3>
+                    <p className="text-xs text-muted-foreground">Descubra por que seus leads não compram</p>
+                  </div>
+                </div>
 
                 {[
                   { field: "name", label: "Nome", type: "text", placeholder: "Seu nome completo" },
@@ -198,7 +204,7 @@ const HeroSection = () => {
                   { field: "email", label: "Email", type: "email", placeholder: "seu@email.com" },
                 ].map((input) => (
                   <div key={input.field} className="mb-3">
-                    <label className="text-xs text-muted-foreground uppercase tracking-wider mb-1.5 block">{input.label}</label>
+                    <label className="text-xs text-muted-foreground uppercase tracking-wider mb-1 block">{input.label}</label>
                     <input
                       type={input.type}
                       required
@@ -207,7 +213,7 @@ const HeroSection = () => {
                       onFocus={() => setFocusedField(input.field)}
                       onBlur={() => setFocusedField(null)}
                       placeholder={input.placeholder}
-                      className={`w-full bg-background/50 border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground/40 focus:outline-none transition-all duration-500 text-sm ${
+                      className={`w-full bg-background/50 border rounded-xl px-4 py-2.5 text-foreground placeholder:text-muted-foreground/40 focus:outline-none transition-all duration-500 text-sm ${
                         focusedField === input.field ? "border-primary shadow-[0_0_20px_-8px_hsl(0_100%_50%_/_0.3)]" : "border-border"
                       }`}
                     />
@@ -218,15 +224,15 @@ const HeroSection = () => {
                   whileHover={{ scale: 1.02, boxShadow: "0 0 40px -10px hsl(0 100% 50% / 0.5)" }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-glow relative overflow-hidden group mt-2"
+                  className="w-full bg-primary text-primary-foreground py-3.5 rounded-full font-semibold flex items-center justify-center gap-2 shadow-glow relative overflow-hidden group mt-1"
                 >
                   <motion.div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                  <Send size={18} className="relative z-10" />
-                  <span className="relative z-10">Enviar</span>
+                  <Send size={16} className="relative z-10" />
+                  <span className="relative z-10">Quero Meu Diagnóstico</span>
                 </motion.button>
 
-                <p className="text-[11px] text-center text-muted-foreground/60 mt-3">
-                  Seus dados estão seguros. Não enviamos spam.
+                <p className="text-[11px] text-center text-muted-foreground/60 mt-2">
+                  Seus dados estão seguros. Sem spam.
                 </p>
               </div>
             </form>

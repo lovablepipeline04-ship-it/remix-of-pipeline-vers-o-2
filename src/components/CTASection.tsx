@@ -8,8 +8,7 @@ const CTASection = () => {
   };
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden bg-card">
-      {/* Large ambient glow */}
+    <section className="py-20 lg:py-28 relative overflow-hidden bg-card">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[200px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 text-center">
@@ -34,9 +33,9 @@ const CTASection = () => {
             whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-6xl lg:text-[5rem] font-black leading-[1] text-foreground mb-4 break-words"
+            className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[1.05] text-foreground mb-4 break-words"
           >
-            PRONTO PARA
+            CANSADO DE
           </motion.h2>
         </div>
         <div className="overflow-hidden">
@@ -45,7 +44,7 @@ const CTASection = () => {
             whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-6xl lg:text-[5rem] font-black leading-[1] mb-10 break-words"
+            className="text-[clamp(2rem,5vw,4.5rem)] font-black leading-[1.05] mb-8 break-words"
           >
             <motion.span
               className="text-gradient-red inline-block"
@@ -53,11 +52,9 @@ const CTASection = () => {
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-              style={{
-                backgroundSize: "200% 200%",
-              }}
+              style={{ backgroundSize: "200% 200%" }}
             >
-              DOMINAR O DIGITAL?
+              PERDER VENDAS?
             </motion.span>
           </motion.h2>
         </div>
@@ -67,9 +64,9 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="text-base lg:text-lg text-muted-foreground max-w-xl mx-auto mb-12"
+          className="text-sm lg:text-base text-muted-foreground max-w-xl mx-auto mb-10"
         >
-          Pare de perder vendas para a concorrência. Fale agora com nossa equipe e transforme sua marca em uma máquina de resultados.
+          Pare de deixar dinheiro na mesa. Cada lead que você perde é uma venda que seu concorrente fecha. Fale agora com nossa equipe.
         </motion.p>
 
         <motion.div
@@ -81,9 +78,9 @@ const CTASection = () => {
         >
           <MagneticButton
             onClick={() => scrollTo("#contato")}
-            className="bg-primary text-primary-foreground px-10 py-4 lg:px-14 lg:py-5 rounded-full text-base lg:text-lg font-semibold shadow-glow hover:shadow-[0_0_60px_-10px_hsl(0_100%_50%_/_0.6)] transition-all duration-500 group inline-flex items-center gap-3 relative overflow-hidden"
+            className="bg-primary text-primary-foreground px-9 py-4 lg:px-12 lg:py-5 rounded-full text-sm lg:text-base font-semibold shadow-glow hover:shadow-[0_0_60px_-10px_hsl(0_100%_50%_/_0.6)] transition-all duration-500 group inline-flex items-center gap-3 relative overflow-hidden"
           >
-            <span className="relative z-10">Começar Agora</span>
+            <span className="relative z-10">Quero Parar de Perder Vendas</span>
             <motion.span
               className="relative z-10"
               animate={{ x: [0, 4, 0] }}
@@ -95,8 +92,8 @@ const CTASection = () => {
           </MagneticButton>
 
           <MagneticButton
-            onClick={() => window.open("https://api.whatsapp.com/send/?phone=5519993211881&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20Pipeline", "_blank")}
-            className="border border-border text-foreground px-10 py-4 lg:px-14 lg:py-5 rounded-full text-base lg:text-lg font-medium hover:bg-secondary/50 transition-all duration-300"
+            onClick={() => window.open("https://api.whatsapp.com/send/?phone=5519993211881&text=Ol%C3%A1%2C%20quero%20parar%20de%20perder%20vendas.%20Podem%20me%20ajudar%3F", "_blank")}
+            className="border border-border text-foreground px-9 py-4 lg:px-12 lg:py-5 rounded-full text-sm lg:text-base font-medium hover:bg-secondary/50 transition-all duration-300"
           >
             Falar pelo WhatsApp
           </MagneticButton>

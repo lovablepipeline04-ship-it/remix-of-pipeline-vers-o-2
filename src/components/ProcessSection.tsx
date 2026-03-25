@@ -3,10 +3,10 @@ import { Search, Target, Rocket, BarChart } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "./InteractiveElements";
 
 const steps = [
-  { icon: Search, title: "Diagnóstico", description: "Análise profunda do seu negócio, mercado e concorrência para mapear oportunidades reais.", num: "01" },
-  { icon: Target, title: "Estratégia", description: "Plano personalizado com metas claras, canais definidos e cronograma de execução.", num: "02" },
-  { icon: Rocket, title: "Execução", description: "Implementação ágil de campanhas, landing pages, automações e otimizações contínuas.", num: "03" },
-  { icon: BarChart, title: "Resultados", description: "Acompanhamento em tempo real com relatórios claros e ajustes baseados em dados.", num: "04" },
+  { icon: Search, title: "Diagnóstico", description: "Analisamos sua operação comercial, canais de aquisição e gargalos que impedem a conversão de leads em vendas.", num: "01" },
+  { icon: Target, title: "Estratégia de Tráfego", description: "Criamos campanhas que geram leads qualificados com perfil real de compra para o seu negócio.", num: "02" },
+  { icon: Rocket, title: "Estruturação Comercial", description: "Treinamos seu time, criamos scripts de atendimento no WhatsApp e implementamos CRM para controle total.", num: "03" },
+  { icon: BarChart, title: "Otimização Contínua", description: "Acompanhamos métricas de cada etapa do funil e otimizamos para aumentar a taxa de conversão continuamente.", num: "04" },
 ];
 
 const ProcessSection = () => {
@@ -24,7 +24,7 @@ const ProcessSection = () => {
       </div>
 
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 lg:mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 lg:mb-18">
           <div>
             <motion.span
               initial={{ opacity: 0 }}
@@ -40,7 +40,7 @@ const ProcessSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground break-words"
+                className="text-[clamp(1.8rem,4vw,3.5rem)] font-black text-foreground break-words"
               >
                 Do diagnóstico ao
               </motion.h2>
@@ -51,9 +51,9 @@ const ProcessSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-3xl md:text-5xl lg:text-6xl font-black text-gradient-red"
+                className="text-[clamp(1.8rem,4vw,3.5rem)] font-black text-gradient-red"
               >
-                resultado.
+                fechamento.
               </motion.h2>
             </div>
           </div>
@@ -64,7 +64,7 @@ const ProcessSection = () => {
             transition={{ delay: 0.3 }}
             className="text-muted-foreground max-w-sm text-sm lg:text-base leading-relaxed"
           >
-            Uma metodologia clara e comprovada para levar sua empresa ao próximo nível digital.
+            Uma metodologia clara para transformar leads em clientes reais e previsíveis.
           </motion.p>
         </div>
 

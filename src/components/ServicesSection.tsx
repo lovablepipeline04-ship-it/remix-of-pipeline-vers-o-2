@@ -1,37 +1,31 @@
 import { motion } from "framer-motion";
-import { BarChart3, Monitor, Share2, Globe, ArrowUpRight } from "lucide-react";
+import { BarChart3, MessageCircle, Database, ArrowUpRight } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "./InteractiveElements";
 
 const services = [
   {
     icon: BarChart3,
-    title: "Tráfego Pago",
-    description: "Aumente suas vendas e alcance o público certo de forma rápida e eficiente.",
+    title: "Geração de Demanda por Tráfego Pago",
+    description: "Campanhas estratégicas no Google e Meta que atraem leads qualificados, prontos para comprar. Chega de gastar com cliques que não viram venda.",
     num: "01",
   },
   {
-    icon: Monitor,
-    title: "Migração de Sistemas",
-    description: "Modernize sua infraestrutura tecnológica sem perder dados.",
+    icon: MessageCircle,
+    title: "Atendimento Comercial Profissional",
+    description: "Treinamento e estruturação do seu time comercial para converter leads do digital pelo WhatsApp. Scripts, cadência e follow-up que fecham.",
     num: "02",
   },
   {
-    icon: Share2,
-    title: "Social Media",
-    description: "Conecte sua marca ao público certo e potencialize suas vendas.",
+    icon: Database,
+    title: "Implementação de CRM",
+    description: "Controle total do funil de vendas. Cada lead rastreado, cada etapa visível. Nenhuma oportunidade esquecida ou perdida.",
     num: "03",
-  },
-  {
-    icon: Globe,
-    title: "Criação de Sites",
-    description: "Páginas modernas que unem design atraente e funcionalidade.",
-    num: "04",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" className="py-20 lg:py-28 relative">
+    <section id="solucoes" className="py-20 lg:py-28 relative">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 lg:mb-16">
           <div>
@@ -41,7 +35,7 @@ const ServicesSection = () => {
               viewport={{ once: true }}
               className="text-primary text-sm font-medium tracking-[0.3em] uppercase block mb-4"
             >
-              Serviços
+              Soluções
             </motion.span>
             <div className="overflow-hidden">
               <motion.h2
@@ -49,9 +43,9 @@ const ServicesSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground break-words"
+                className="text-[clamp(1.8rem,4vw,3.5rem)] font-black text-foreground break-words"
               >
-                O que nós
+                Como a Pipeline
               </motion.h2>
             </div>
             <div className="overflow-hidden">
@@ -60,9 +54,9 @@ const ServicesSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-3xl md:text-5xl lg:text-6xl font-black text-gradient-red"
+                className="text-[clamp(1.8rem,4vw,3.5rem)] font-black text-gradient-red"
               >
-                fazemos.
+                resolve isso.
               </motion.h2>
             </div>
           </div>
@@ -73,7 +67,7 @@ const ServicesSection = () => {
             transition={{ delay: 0.3 }}
             className="text-muted-foreground max-w-sm text-sm lg:text-base leading-relaxed"
           >
-            Soluções completas para posicionar sua marca no digital e transformar presença em resultados.
+            Três pilares que transformam leads em vendas reais e previsíveis.
           </motion.p>
         </div>
 
@@ -94,7 +88,7 @@ const ServicesSection = () => {
                   <service.icon size={20} className="text-primary group-hover:text-primary-foreground transition-colors duration-500" />
                 </motion.div>
 
-                <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 flex-1">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 flex-1 break-words">
                   {service.title}
                 </h3>
 

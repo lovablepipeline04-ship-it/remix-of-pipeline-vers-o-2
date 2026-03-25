@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Instagram, Linkedin, Facebook } from "lucide-react";
-import pipelineLogo from "@/assets/pipeline-logo.png";
+import pipelineLogo from "@/assets/pipeline-favicon.png";
 
 const FooterSection = () => {
   const scrollTo = (href: string) => {
@@ -18,11 +18,11 @@ const FooterSection = () => {
               onClick={() => scrollTo("#inicio")}
               className="flex items-center gap-3 mb-3"
             >
-              <div className="w-6 h-6 rounded-full bg-primary" />
+              <img src={pipelineLogo} alt="Pipeline" className="h-7 w-auto" />
               <span className="text-lg font-black text-foreground tracking-tight">PIPELINE</span>
             </motion.button>
             <p className="text-xs text-muted-foreground mb-4">
-              Consultoria Digital de Performance
+              Seus leads virando vendas de verdade.
             </p>
             <div className="flex gap-3">
               {[
@@ -48,9 +48,9 @@ const FooterSection = () => {
           <div className="flex flex-col gap-3">
             <span className="text-xs font-medium text-foreground uppercase tracking-wider mb-1">Navegação</span>
             {[
+              { label: "Soluções", href: "#solucoes" },
               { label: "Processo", href: "#processo" },
               { label: "Sobre Nós", href: "#sobre" },
-              { label: "Depoimentos", href: "#depoimentos" },
               { label: "FAQ", href: "#faq" },
               { label: "Contato", href: "#contato" },
             ].map((link) => (
@@ -78,7 +78,6 @@ const FooterSection = () => {
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Pipeline. Todos os direitos reservados.
           </p>
-
           <motion.a
             href="https://www.instagram.com/pipeline.br/"
             target="_blank"
@@ -89,7 +88,7 @@ const FooterSection = () => {
             <span className="text-xs group-hover:text-primary transition-colors">Pipeline Consultoria Digital</span>
             <img
               src={pipelineLogo}
-              alt="Pipeline Consultoria Digital"
+              alt="Pipeline"
               className="h-5 w-auto opacity-70 group-hover:opacity-100 transition-opacity"
             />
           </motion.a>

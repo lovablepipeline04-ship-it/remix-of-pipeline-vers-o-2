@@ -2,17 +2,17 @@ import { motion } from "framer-motion";
 import { SmoothCounter } from "./InteractiveElements";
 
 const stats = [
-  { value: 500, prefix: "+", suffix: "", label: "Leads gerados", sub: "por mês" },
-  { value: 3, prefix: "", suffix: "x", label: "Mais orçamentos", sub: "em média" },
+  { value: 500, prefix: "+", suffix: "", label: "Leads qualificados", sub: "gerados por mês" },
+  { value: 3, prefix: "", suffix: "x", label: "Mais conversão", sub: "no comercial" },
   { value: 98, prefix: "", suffix: "%", label: "Satisfação", sub: "dos clientes" },
-  { value: 24, prefix: "", suffix: "h", label: "Online", sub: "sempre ativo" },
+  { value: 100, prefix: "", suffix: "%", label: "Funil rastreado", sub: "com CRM" },
 ];
 
 const ResultsSection = () => {
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden bg-card">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 lg:mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 lg:mb-18">
           <div>
             <motion.span
               initial={{ opacity: 0 }}
@@ -28,9 +28,9 @@ const ResultsSection = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-3xl md:text-5xl lg:text-6xl font-black text-foreground break-words"
+                className="text-[clamp(1.8rem,4vw,3.5rem)] font-black text-foreground break-words"
               >
-                Números que <span className="text-gradient-red">falam.</span>
+                Números que <span className="text-gradient-red">vendem.</span>
               </motion.h2>
             </div>
           </div>
@@ -41,7 +41,7 @@ const ResultsSection = () => {
             transition={{ delay: 0.3 }}
             className="text-muted-foreground max-w-sm text-sm lg:text-base leading-relaxed"
           >
-            Resultados reais, mensuráveis e transparentes — sem promessas vazias.
+            Resultados reais de clientes que pararam de perder vendas.
           </motion.p>
         </div>
 
@@ -55,7 +55,6 @@ const ResultsSection = () => {
               transition={{ delay: i * 0.12, duration: 0.6 }}
               className="relative bg-background border border-border rounded-3xl p-6 lg:p-8 group cursor-default hover:border-primary/30 transition-all duration-500 text-center overflow-hidden"
             >
-              {/* Animated gradient bg on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-transparent group-hover:to-primary/5 transition-all duration-700" />
 
               <div className="relative z-10">
