@@ -59,7 +59,7 @@ const HeroSection = () => {
     <section 
       ref={ref} 
       id="inicio" 
-      className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12 lg:pt-24 lg:pb-20 group"
+      className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-8 lg:pt-20 lg:pb-12 group"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => setMousePosition({ x: -1000, y: -1000 })}
     >
