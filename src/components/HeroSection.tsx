@@ -30,7 +30,7 @@ const LetterReveal = ({ text, className = "", delay = 0 }: { text: string; class
 const HeroSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const [formData, setFormData] = useState({ name: "", phone: "", email: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", instagram: "", city: "", teamSize: "" });
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: -1000, y: -1000 });
 
@@ -49,7 +49,7 @@ const HeroSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    openWhatsApp(`Vim do site e queria saber mais informações da Pipeline. Meu nome é ${formData.name}.`);
+    openWhatsApp(`Vim do site e queria saber mais informações da Pipeline. Meu nome é ${formData.name}, WhatsApp: ${formData.phone}, Instagram: ${formData.instagram}, Cidade: ${formData.city}, Colaboradores: ${formData.teamSize}.`);
   };
 
   return (
@@ -216,10 +216,11 @@ const HeroSection = () => {
 
                 {[
                   { field: "name", label: "Nome", type: "text", placeholder: "Seu nome completo" },
-                  { field: "phone", label: "WhatsApp", type: "tel", placeholder: "(00) 00000-0000" },
-                  { field: "email", label: "Email", type: "email", placeholder: "seu@email.com" },
+                  { field: "phone", label: "Seu WhatsApp", type: "tel", placeholder: "(00) 00000-0000" },
+                  { field: "instagram", label: "@ do Instagram", type: "text", placeholder: "@seuinstagram" },
+                  { field: "city", label: "Cidade", type: "text", placeholder: "Sua cidade" },
                 ].map((input) => (
-                  <div key={input.field} className="mb-3">
+                  <div key={input.field} className="mb-2">
                     <label className="text-xs text-muted-foreground uppercase tracking-wider mb-1 block">{input.label}</label>
                     <input
                       type={input.type}
@@ -238,12 +239,32 @@ const HeroSection = () => {
                       onFocus={() => setFocusedField(input.field)}
                       onBlur={() => setFocusedField(null)}
                       placeholder={input.placeholder}
-                      className={`w-full bg-background/50 border rounded-xl px-4 py-2.5 text-foreground placeholder:text-muted-foreground/40 focus:outline-none transition-all duration-500 text-sm ${
+                      className={`w-full bg-background/50 border rounded-xl px-4 py-2 text-foreground placeholder:text-muted-foreground/40 focus:outline-none transition-all duration-500 text-sm ${
                         focusedField === input.field ? "border-primary shadow-[0_0_20px_-8px_hsl(0_100%_50%_/_0.3)]" : "border-border"
                       }`}
                     />
                   </div>
                 ))}
+
+                <div className="mb-2">
+                  <label className="text-xs text-muted-foreground uppercase tracking-wider mb-1 block">Colaboradores na empresa</label>
+                  <div className="grid grid-cols-5 gap-2">
+                    {["1", "2-3", "4-10", "11-50", "+50"].map((opt) => (
+                      <button
+                        key={opt}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, teamSize: opt })}
+                        className={`py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                          formData.teamSize === opt
+                            ? "bg-primary text-primary-foreground shadow-[0_0_20px_-8px_hsl(0_100%_50%_/_0.3)]"
+                            : "bg-background/50 border border-border text-muted-foreground hover:border-primary/50"
+                        }`}
+                      >
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
                 <motion.button
                   whileHover={{ scale: 1.02, boxShadow: "0 0 40px -10px hsl(0 100% 50% / 0.5)" }}

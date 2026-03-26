@@ -5,12 +5,12 @@ import { MagneticButton } from "./InteractiveElements";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: "", phone: "", email: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", instagram: "", city: "", teamSize: "" });
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    openWhatsApp(`Vim do site e queria saber mais informações da Pipeline. Meu nome é ${formData.name}.`);
+    openWhatsApp(`Vim do site e queria saber mais informações da Pipeline. Meu nome é ${formData.name}, WhatsApp: ${formData.phone}, Instagram: ${formData.instagram}, Cidade: ${formData.city}, Colaboradores: ${formData.teamSize}.`);
   };
 
   return (
@@ -94,8 +94,9 @@ const ContactSection = () => {
 
               {[
                 { field: "name", label: "Nome", type: "text", placeholder: "Seu nome completo" },
-                { field: "phone", label: "WhatsApp", type: "tel", placeholder: "(00) 00000-0000" },
-                { field: "email", label: "Email", type: "email", placeholder: "seu@email.com" },
+                { field: "phone", label: "Seu WhatsApp", type: "tel", placeholder: "(00) 00000-0000" },
+                { field: "instagram", label: "@ do Instagram", type: "text", placeholder: "@seuinstagram" },
+                { field: "city", label: "Cidade", type: "text", placeholder: "Sua cidade" },
               ].map((input, i) => (
                 <motion.div
                   key={input.field}
@@ -109,7 +110,16 @@ const ContactSection = () => {
                     type={input.type}
                     required
                     value={formData[input.field as keyof typeof formData]}
-                    onChange={(e) => setFormData({ ...formData, [input.field]: e.target.value })}
+                    onChange={(e) => {
+                      let val = e.target.value;
+                      if (input.field === "phone") {
+                        val = val.replace(/\D/g, "");
+                        val = val.replace(/^(\d{2})(\d)/g, "($1) $2");
+                        val = val.replace(/(\d)(\d{4})$/, "$1-$2");
+                        if (val.length > 15) val = val.substring(0, 15);
+                      }
+                      setFormData({ ...formData, [input.field]: val });
+                    }}
                     onFocus={() => setFocusedField(input.field)}
                     onBlur={() => setFocusedField(null)}
                     placeholder={input.placeholder}
@@ -119,6 +129,31 @@ const ContactSection = () => {
                   />
                 </motion.div>
               ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+              >
+                <label className="text-xs text-muted-foreground uppercase tracking-wider mb-2 block">Colaboradores na empresa</label>
+                <div className="grid grid-cols-5 gap-2">
+                  {["1", "2-3", "4-10", "11-50", "+50"].map((opt) => (
+                    <button
+                      key={opt}
+                      type="button"
+                      onClick={() => setFormData({ ...formData, teamSize: opt })}
+                      className={`py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
+                        formData.teamSize === opt
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-transparent border border-border text-muted-foreground hover:border-primary/50"
+                      }`}
+                    >
+                      {opt}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
 
               <motion.button
                 whileHover={{ scale: 1.02, boxShadow: "0 0 40px -10px hsl(0 100% 50% / 0.5)" }}
