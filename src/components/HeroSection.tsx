@@ -117,21 +117,21 @@ const HeroSection = () => {
             <div className="overflow-hidden mb-1">
               <LetterReveal
                 text="SEUS LEADS"
-                className="text-[clamp(2rem,6vw,5rem)] font-black leading-[1.05] tracking-tight text-foreground block"
+                className="text-[clamp(1.8rem,5vw,4rem)] font-black leading-[1.05] tracking-tight text-foreground block"
                 delay={0.5}
               />
             </div>
             <div className="overflow-hidden mb-1">
               <LetterReveal
                 text="NÃO VIRAM"
-                className="text-[clamp(2rem,6vw,5rem)] font-black leading-[1.05] tracking-tight text-foreground block"
+                className="text-[clamp(1.8rem,5vw,4rem)] font-black leading-[1.05] tracking-tight text-foreground block"
                 delay={0.8}
               />
             </div>
             <div className="overflow-hidden">
               <LetterReveal
                 text="VENDAS?"
-                className="text-[clamp(2rem,6vw,5rem)] font-black leading-[1.05] tracking-tight text-gradient-red block"
+                className="text-[clamp(1.8rem,5vw,4rem)] font-black leading-[1.05] tracking-tight text-gradient-red block"
                 delay={1.1}
               />
             </div>
