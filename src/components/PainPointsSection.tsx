@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { AlertTriangle, MessageCircleWarning, DatabaseZap } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "./InteractiveElements";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const pains = [
   {
@@ -24,9 +25,6 @@ const pains = [
 ];
 
 const PainPointsSection = () => {
-  const scrollTo = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section id="dores" className="py-20 lg:py-28 relative overflow-hidden bg-background">
@@ -101,7 +99,7 @@ const PainPointsSection = () => {
           viewport={{ once: true }}
           className="mt-14 flex justify-center"
         >
-          <button onClick={() => document.querySelector('#contato')?.scrollIntoView({ behavior: 'smooth' })} className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-glow hover:scale-105 transition-all duration-300">
+          <button onClick={() => openWhatsApp()} className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-glow hover:scale-105 transition-all duration-300">
             Quero resolver isso
           </button>
         </motion.div>

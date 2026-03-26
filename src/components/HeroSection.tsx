@@ -149,7 +149,7 @@ const HeroSection = () => {
               className="flex items-center gap-6 mt-5"
             >
               <MagneticButton
-                onClick={() => scrollTo("#contato")}
+                onClick={() => openWhatsApp()}
                 className="bg-primary text-primary-foreground px-7 py-3.5 lg:px-9 lg:py-4 rounded-full text-sm lg:text-base font-semibold shadow-glow hover:shadow-[0_0_60px_-10px_hsl(0_100%_50%_/_0.6)] transition-shadow duration-500 group relative overflow-hidden"
               >
                 <span className="relative z-10">Quero Gerar Mais Vendas</span>

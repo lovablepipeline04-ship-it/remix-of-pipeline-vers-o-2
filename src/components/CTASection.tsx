@@ -1,11 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { MagneticButton } from "./InteractiveElements";
-
-const CTASection = () => {
-  const scrollTo = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
+import { openWhatsApp } from "@/lib/whatsapp";
 
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden bg-card">
