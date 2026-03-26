@@ -5,6 +5,7 @@ import { ArrowDown, Send } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import pipelineLogo from "@/assets/pipeline-favicon.png";
 import { MagneticButton, FloatingElement } from "./InteractiveElements";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const LetterReveal = ({ text, className = "", delay = 0 }: { text: string; className?: string; delay?: number }) => (
   <span className={className}>
@@ -48,11 +49,7 @@ const HeroSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá, meu nome é ${formData.name}. Quero um diagnóstico gratuito para gerar mais vendas.`;
-    window.open(
-      `https://api.whatsapp.com/send/?phone=5519993211881&text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
+    openWhatsApp(`Vim do site e queria saber mais informações da Pipeline. Meu nome é ${formData.name}.`);
   };
 
   return (

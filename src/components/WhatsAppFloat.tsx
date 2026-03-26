@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 const WhatsAppFloat = () => {
   return (
     <motion.a
-      href="https://api.whatsapp.com/send/?phone=5519993211881&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20Pipeline"
+      href={getWhatsAppUrl()}
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}
