@@ -68,26 +68,26 @@ const ProcessSection = () => {
           </motion.p>
         </div>
 
-        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.12}>
+        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6" staggerDelay={0.12}>
           {steps.map((step) => (
             <StaggerItem key={step.title}>
               <motion.div
                 whileHover={{ y: -8 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className="relative bg-card border border-border rounded-3xl p-7 pt-8 group hover:border-primary/30 transition-all duration-500 overflow-hidden h-full"
+                className="relative bg-card border border-border rounded-2xl md:rounded-3xl p-4 md:p-7 pt-5 md:pt-8 group hover:border-primary/30 transition-all duration-500 overflow-hidden h-full"
               >
-                <span className="absolute -top-4 -right-2 text-[7rem] font-black text-foreground/[0.03] group-hover:text-primary/[0.08] transition-all duration-700 leading-none select-none">
+                <span className="absolute -top-3 -right-2 text-[5rem] md:text-[7rem] font-black text-foreground/[0.03] group-hover:text-primary/[0.08] transition-all duration-700 leading-none select-none">
                   {step.num}
                 </span>
 
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-500">
-                    <step.icon size={22} className="text-primary group-hover:text-primary-foreground transition-colors duration-500" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center mb-4 md:mb-5 group-hover:bg-primary transition-colors duration-500">
+                    <step.icon className="w-5 h-5 md:w-[22px] md:h-[22px] text-primary group-hover:text-primary-foreground transition-colors duration-500" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-sm md:text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 leading-snug break-words">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-[12px] md:text-sm leading-relaxed md:leading-relaxed">
                     {step.description}
                   </p>
                 </div>

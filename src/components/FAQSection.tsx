@@ -9,7 +9,7 @@ import {
 const faqs = [
   {
     question: "Meus leads não têm perfil de compra. Vocês resolvem isso?",
-    answer: "Sim. Criamos campanhas de tráfego pago segmentadas com foco em perfil de compra real — não em volume. Leads qualificados custam mais por unidade, mas convertem de verdade.",
+    answer: "Sim. Criamos campanhas de tráfego pago segmentadas com foco em perfil de compra real não em volume. Leads qualificados custam mais por unidade, mas convertem de verdade.",
   },
   {
     question: "Meu time comercial não sabe atender leads do digital. E agora?",
@@ -31,8 +31,12 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="py-20 lg:py-28 relative">
-      <div className="container mx-auto px-6">
+    <section id="faq" className="py-20 lg:py-28 relative overflow-hidden bg-card">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[130px] rounded-full pointer-events-none translate-x-1/2 -translate-y-1/2 animate-blob" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-24">
           <div className="lg:col-span-5">
             <motion.span

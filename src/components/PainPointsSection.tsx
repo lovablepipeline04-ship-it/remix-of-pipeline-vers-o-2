@@ -6,7 +6,7 @@ const pains = [
   {
     icon: AlertTriangle,
     title: "Leads desqualificados ou inexistentes",
-    description: "Você investe em tráfego mas os leads que chegam não têm perfil de compra? Ou pior — não chega ninguém?",
+    description: "Você investe em tráfego mas os leads que chegam não têm perfil de compra? Ou pior não chega ninguém?",
     num: "01",
   },
   {
@@ -29,8 +29,12 @@ const PainPointsSection = () => {
   };
 
   return (
-    <section id="dores" className="py-20 lg:py-28 relative overflow-hidden bg-card">
-      <div className="container mx-auto px-6">
+    <section id="dores" className="py-20 lg:py-28 relative overflow-hidden bg-background">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, black, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)' }} />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 blur-[150px] rounded-full pointer-events-none -translate-x-1/2 translate-y-1/2 animate-blob animation-delay-2000" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-14 lg:mb-16">
           <motion.span
             initial={{ opacity: 0 }}
@@ -90,6 +94,17 @@ const PainPointsSection = () => {
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-14 flex justify-center"
+        >
+          <button onClick={() => document.querySelector('#contato')?.scrollIntoView({ behavior: 'smooth' })} className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-glow hover:scale-105 transition-all duration-300">
+            Quero resolver isso
+          </button>
+        </motion.div>
       </div>
     </section>
   );

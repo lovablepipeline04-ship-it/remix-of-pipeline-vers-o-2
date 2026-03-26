@@ -79,7 +79,7 @@ const Navbar = () => {
               onClick={() => scrollTo("#contato")}
               className="bg-gradient-red text-primary-foreground px-6 py-2.5 rounded-full text-sm font-medium"
             >
-              Diagnóstico Gratuito
+              Falar no WhatsApp
             </motion.button>
           </div>
 
@@ -121,7 +121,7 @@ const Navbar = () => {
                   onClick={() => scrollTo("#contato")}
                   className="bg-gradient-red text-primary-foreground px-6 py-3 rounded-full text-sm font-medium w-full"
                 >
-                  Diagnóstico Gratuito
+                  Falar no WhatsApp
                 </motion.button>
               </div>
             </motion.div>

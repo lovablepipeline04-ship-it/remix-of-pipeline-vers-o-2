@@ -31,11 +31,16 @@ const HeroSection = () => {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const [formData, setFormData] = useState({ name: "", phone: "", email: "" });
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: -1000, y: -1000 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
 
   const bgY = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const scrollTo = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -51,7 +56,21 @@ const HeroSection = () => {
   };
 
   return (
-    <section ref={ref} id="inicio" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12 lg:pt-24 lg:pb-20">
+    <section 
+      ref={ref} 
+      id="inicio" 
+      className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12 lg:pt-24 lg:pb-20 group"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setMousePosition({ x: -1000, y: -1000 })}
+    >
+      {/* Interactive Hover Glow */}
+      <div 
+        className="pointer-events-none absolute -inset-px z-0 opacity-0 transition-opacity duration-1000 group-hover:opacity-100"
+        style={{
+          background: `radial-gradient(1000px circle at ${mousePosition.x}px ${mousePosition.y}px, hsl(var(--primary) / 0.15), transparent 40%)`
+        }}
+      />
+      
       {/* Background with parallax */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
@@ -77,7 +96,7 @@ const HeroSection = () => {
       </FloatingElement>
 
       {/* Content */}
-      <motion.div style={{ y: textY, opacity }} className="container mx-auto px-6 relative z-10">
+      <motion.div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           {/* Left - Text */}
           <div className="lg:col-span-7">
@@ -209,7 +228,16 @@ const HeroSection = () => {
                       type={input.type}
                       required
                       value={formData[input.field as keyof typeof formData]}
-                      onChange={(e) => setFormData({ ...formData, [input.field]: e.target.value })}
+                      onChange={(e) => {
+                        let val = e.target.value;
+                        if (input.field === "phone") {
+                          val = val.replace(/\D/g, "");
+                          val = val.replace(/^(\d{2})(\d)/g, "($1) $2");
+                          val = val.replace(/(\d)(\d{4})$/, "$1-$2");
+                          if (val.length > 15) val = val.substring(0, 15);
+                        }
+                        setFormData({ ...formData, [input.field]: val });
+                      }}
                       onFocus={() => setFocusedField(input.field)}
                       onBlur={() => setFocusedField(null)}
                       placeholder={input.placeholder}

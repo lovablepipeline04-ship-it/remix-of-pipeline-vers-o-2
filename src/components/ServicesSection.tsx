@@ -77,7 +77,7 @@ const ServicesSection = () => {
               <motion.div
                 whileHover={{ x: 12, backgroundColor: "hsl(0 0% 8%)" }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                className="group cursor-pointer py-7 lg:py-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-10 relative"
+                className="group cursor-pointer py-7 lg:py-8 px-4 md:px-6 md:pr-24 lg:pr-28 flex flex-col md:flex-row md:items-center gap-5 md:gap-8 relative rounded-2xl overflow-hidden"
               >
                 <span className="text-sm text-muted-foreground font-mono w-8 shrink-0">{service.num}</span>
 
@@ -92,13 +92,13 @@ const ServicesSection = () => {
                   {service.title}
                 </h3>
 
-                <p className="text-muted-foreground text-sm max-w-xs leading-relaxed md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 transition-all duration-500">
+                <p className="text-muted-foreground text-sm max-w-[320px] leading-relaxed md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 transition-all duration-500">
                   {service.description}
                 </p>
 
                 <motion.div
-                  className="absolute right-0 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:block"
-                  whileHover={{ scale: 1.2 }}
+                  className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 hover:bg-primary/20"
+                  whileHover={{ scale: 1.1, rotate: 15 }}
                 >
                   <ArrowUpRight size={22} className="text-primary" />
                 </motion.div>
