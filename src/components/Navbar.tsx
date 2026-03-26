@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import pipelineLogo from "@/assets/pipeline-favicon.png";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -76,7 +77,7 @@ const Navbar = () => {
               transition={{ delay: 1 }}
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px hsl(0 100% 47.6% / 0.4)" }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollTo("#contato")}
+              onClick={() => openWhatsApp()}
               className="bg-gradient-red text-primary-foreground px-6 py-2.5 rounded-full text-sm font-medium"
             >
               Falar no WhatsApp
@@ -118,7 +119,7 @@ const Navbar = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
-                  onClick={() => scrollTo("#contato")}
+                  onClick={() => openWhatsApp()}
                   className="bg-gradient-red text-primary-foreground px-6 py-3 rounded-full text-sm font-medium w-full"
                 >
                   Falar no WhatsApp

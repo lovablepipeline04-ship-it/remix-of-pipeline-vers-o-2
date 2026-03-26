@@ -5,6 +5,7 @@ import { ArrowDown, Send } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import pipelineLogo from "@/assets/pipeline-favicon.png";
 import { MagneticButton, FloatingElement } from "./InteractiveElements";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const LetterReveal = ({ text, className = "", delay = 0 }: { text: string; className?: string; delay?: number }) => (
   <span className={className}>
@@ -48,11 +49,7 @@ const HeroSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá, meu nome é ${formData.name}. Quero um diagnóstico gratuito para gerar mais vendas.`;
-    window.open(
-      `https://api.whatsapp.com/send/?phone=5519993211881&text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
+    openWhatsApp(`Vim do site e queria saber mais informações da Pipeline. Meu nome é ${formData.name}.`);
   };
 
   return (
@@ -152,7 +149,7 @@ const HeroSection = () => {
               className="flex items-center gap-6 mt-5"
             >
               <MagneticButton
-                onClick={() => scrollTo("#contato")}
+                onClick={() => openWhatsApp()}
                 className="bg-primary text-primary-foreground px-7 py-3.5 lg:px-9 lg:py-4 rounded-full text-sm lg:text-base font-semibold shadow-glow hover:shadow-[0_0_60px_-10px_hsl(0_100%_50%_/_0.6)] transition-shadow duration-500 group relative overflow-hidden"
               >
                 <span className="relative z-10">Quero Gerar Mais Vendas</span>
