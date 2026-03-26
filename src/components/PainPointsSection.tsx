@@ -80,7 +80,7 @@ const PainPointsSection = () => {
                   </p>
                   <motion.button
                     whileHover={{ x: 4 }}
-                    onClick={() => scrollTo("#solucoes")}
+                    onClick={() => openWhatsApp()}
                     className="text-primary text-sm font-semibold mt-5 text-left hover:underline"
                   >
                     A Pipeline resolve isso →

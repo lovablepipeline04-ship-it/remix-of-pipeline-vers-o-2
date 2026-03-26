@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import pipelineLogo from "@/assets/pipeline-favicon.png";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

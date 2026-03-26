@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, MessageCircle, Phone, Mail } from "lucide-react";
 import { MagneticButton } from "./InteractiveElements";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", email: "" });
@@ -9,11 +10,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá, meu nome é ${formData.name}. Quero um diagnóstico gratuito para parar de perder vendas.`;
-    window.open(
-      `https://api.whatsapp.com/send/?phone=5519993211881&text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
+    openWhatsApp(`Vim do site e queria saber mais informações da Pipeline. Meu nome é ${formData.name}.`);
   };
 
   return (
@@ -60,12 +57,7 @@ const ContactSection = () => {
               className="space-y-5"
             >
               <MagneticButton
-                onClick={() =>
-                  window.open(
-                    "https://api.whatsapp.com/send/?phone=5519993211881&text=Ol%C3%A1%2C%20quero%20um%20diagn%C3%B3stico%20gratuito",
-                    "_blank"
-                  )
-                }
+                onClick={() => openWhatsApp()}
                 className="inline-flex items-center gap-3 bg-[#25D366] text-primary-foreground px-7 py-3.5 rounded-full font-medium text-sm"
               >
                 <MessageCircle size={18} />

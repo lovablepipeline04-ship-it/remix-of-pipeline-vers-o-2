@@ -74,7 +74,7 @@ const CTASection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <MagneticButton
-            onClick={() => scrollTo("#contato")}
+            onClick={() => openWhatsApp()}
             className="bg-primary text-primary-foreground px-9 py-4 lg:px-12 lg:py-5 rounded-full text-sm lg:text-base font-semibold shadow-glow hover:shadow-[0_0_60px_-10px_hsl(0_100%_50%_/_0.6)] transition-all duration-500 group inline-flex items-center gap-3 relative overflow-hidden"
           >
             <span className="relative z-10">Quero Parar de Perder Vendas</span>
@@ -89,7 +89,7 @@ const CTASection = () => {
           </MagneticButton>
 
           <MagneticButton
-            onClick={() => window.open("https://api.whatsapp.com/send/?phone=5519993211881&text=Ol%C3%A1%2C%20quero%20parar%20de%20perder%20vendas.%20Podem%20me%20ajudar%3F", "_blank")}
+            onClick={() => openWhatsApp()}
             className="border border-border text-foreground px-9 py-4 lg:px-12 lg:py-5 rounded-full text-sm lg:text-base font-medium hover:bg-secondary/50 transition-all duration-300"
           >
             Falar pelo WhatsApp
